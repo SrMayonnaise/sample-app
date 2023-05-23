@@ -17,6 +17,12 @@ echo "EXPOSE 5050" >> tempdir/Dockerfile
 echo "CMD python /home/myapp/sample_app.py" >> tempdir/Dockerfile
 
 cd tempdir
-docker build -t jenki .
-docker run -t -d -p 5050:5050 --name jenkimg jenki
-docker ps -a 
+docker build --no-cache -t jenki .
+
+if [ $? -eq 0 ]; then
+    echo "Docker listo, iniciando..."
+    docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+    docker ps -a
+else
+    echo "Error al construir el Docker. Cancelando..."
+fi
