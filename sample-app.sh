@@ -17,6 +17,6 @@ echo "EXPOSE 5050" >> tempdir/Dockerfile
 echo "CMD python /home/myapp/sample_app.py" >> tempdir/Dockerfile
 
 cd tempdir
-docker build --no-cache -t jenki .
-docker run -t -d -p 5050:5050 --name jenkimg jenki
+docker build -t sampleapp .
+docker run -t -d -p 500:5050 --name samplerunning sampleapp
 docker ps -a 
