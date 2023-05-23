@@ -21,7 +21,7 @@ docker build --no-cache -t jenki .
 
 if [ $? -eq 0 ]; then
     echo "Docker listo, iniciando..."
-    docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+    docker run -t -d -p 5050:5050 --name samplerunning sampleapp
     docker ps -a
 else
     echo "Error al construir el Docker. Cancelando..."
